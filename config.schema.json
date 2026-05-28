@@ -1,0 +1,103 @@
+{
+  "pluginAlias": "HomebridgeZigbeeRgbEffect",
+  "pluginType": "platform",
+  "singular": false,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Name",
+        "type": "string",
+        "default": "Zigbee RGB Effect",
+        "required": true
+      },
+      "mqttBroker": {
+        "title": "MQTT Broker URL",
+        "type": "string",
+        "default": "mqtt://127.0.0.1:1883",
+        "required": true,
+        "description": "MQTT broker URL, e.g. mqtt://192.168.1.10:1883"
+      },
+      "mqttUsername": {
+        "title": "MQTT Username",
+        "type": "string",
+        "description": "Leave empty if not required"
+      },
+      "mqttPassword": {
+        "title": "MQTT Password",
+        "type": "string",
+        "description": "Leave empty if not required"
+      },
+      "accessories": {
+        "title": "RGB LED Accessories",
+        "type": "array",
+        "items": {
+          "title": "LED",
+          "type": "object",
+          "properties": {
+            "name": {
+              "title": "Accessory Name",
+              "type": "string",
+              "required": true,
+              "description": "Name shown in HomeKit"
+            },
+            "zigbeeFriendlyName": {
+              "title": "Zigbee Friendly Name",
+              "type": "string",
+              "required": true,
+              "description": "The Zigbee2MQTT friendly name"
+            },
+            "effect": {
+              "title": "Effect on Turn-On",
+              "type": "string",
+              "default": "colorloop",
+              "required": true,
+              "oneOf": [
+                { "title": "Colorloop", "enum": ["colorloop"] },
+                { "title": "Blink", "enum": ["blink"] },
+                { "title": "Breathe", "enum": ["breathe"] },
+                { "title": "Okay", "enum": ["okay"] },
+                { "title": "Channel Change", "enum": ["channel_change"] },
+                { "title": "Stop Effect", "enum": ["stop_effect"] },
+                { "title": "Stop Colorloop", "enum": ["stop_colorloop"] }
+              ],
+              "description": "Effect to trigger when the switch is turned ON"
+            },
+            "brightness": {
+              "title": "Brightness on Turn-On (0-254)",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 254,
+              "description": "Optional: set brightness when turning on"
+            }
+          }
+        }
+      }
+    }
+  },
+  "layout": [
+    {
+      "key": "name"
+    },
+    {
+      "key": "mqttBroker"
+    },
+    {
+      "key": "mqttUsername"
+    },
+    {
+      "key": "mqttPassword"
+    },
+    {
+      "type": "array",
+      "key": "accessories",
+      "title": "RGB LED Accessories",
+      "items": [
+        "accessories[].name",
+        "accessories[].zigbeeFriendlyName",
+        "accessories[].effect",
+        "accessories[].brightness"
+      ]
+    }
+  ]
+}

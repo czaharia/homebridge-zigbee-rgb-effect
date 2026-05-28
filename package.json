@@ -1,0 +1,50 @@
+{
+  "name": "homebridge-zigbee-rgb-effect",
+  "displayName": "Homebridge Zigbee RGB Effect Switch",
+  "version": "1.0.0",
+  "description": "Homebridge plugin to control a Zigbee RGB LED via MQTT as a HomeKit switch with a configurable effect on turn-on.",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/czaharia/homebridge-zigbee-rgb-effect#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/czaharia/homebridge-zigbee-rgb-effect.git"
+  },
+  "bugs": {
+    "url": "https://github.com/czaharia/homebridge-zigbee-rgb-effect/issues"
+  },
+  "keywords": [
+    "homebridge-plugin",
+    "homebridge",
+    "mqtt",
+    "zigbee",
+    "zigbee2mqtt",
+    "rgb",
+    "led",
+    "effect",
+    "colorloop"
+  ],
+  "main": "dist/index.js",
+  "engines": {
+    "homebridge": "^1.6.0 || ^2.0.0-beta.0",
+	"node": ">=20"
+  },
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "prepublishOnly": "npm run build",
+    "watch": "npm run build && npm link && nodemon"
+  },
+  "dependencies": {
+    "mqtt": "^5.10.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "homebridge": "^1.7.0",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3",
+    "nodemon": "^3.1.9"
+  },
+  "peerDependencies": {
+    "homebridge": "^1.8.0 || ^2.0.0-beta.0"
+  }
+}
