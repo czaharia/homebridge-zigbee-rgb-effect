@@ -1,4 +1,4 @@
-export const PLATFORM_NAME = 'ZigbeeRgbEffect';
+export const PLATFORM_NAME = 'HomebridgeZigbeeRgbEffect';
 export const PLUGIN_NAME = 'homebridge-zigbee-rgb-effect';
 
 export type EffectType =
