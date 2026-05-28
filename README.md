@@ -7,11 +7,11 @@ A Homebridge plugin to control a Zigbee RGB LED (Tuya TS0503B or compatible) via
 - Exposes each LED as a **HomeKit Switch**
 - Turning **ON** sends `{"state":"ON"}` then applies your chosen effect (e.g. `colorloop`)
 - Turning **OFF** sends `{"state":"OFF","effect":"stop_effect"}` to stop the effect cleanly
-- **Reliable state tracking** — subscribes to `zigbee2mqtt/<FriendlyName>` and reads `state` from device feedback
+- **State tracking** — subscribes to `zigbee2mqtt/<FriendlyName>` and reads `state` from device feedback
 - Multiple LEDs supported, each with its own effect
 - Optional brightness setting on turn-on
 
-## Supported Effects (TS0503B)
+## Supported Effects (tested on TS0503B)
 
 `colorloop`, `blink`, `breathe`, `okay`, `channel_change`, `stop_effect`, `stop_colorloop`
 
@@ -23,11 +23,7 @@ A Homebridge plugin to control a Zigbee RGB LED (Tuya TS0503B or compatible) via
 
 ## Installation
 
-```bash
-npm install -g homebridge-zigbee-rgb-effect
-```
-
-Or install via the Homebridge UI plugin search.
+Install via the Homebridge UI plugin search.
 
 ## Configuration
 
